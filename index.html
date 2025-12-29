@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Australie Relaxante : De Sydney aux Récifs Coralliens </title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      template: {
+                          sable: '#FFEDD5', 
+                          ocre: '#F97316',   // Orange Vibrant (Brand Accent)
+                          roche: '#0F172A',  // Bleu Nuit (Brand Dark)
+                          ciel: '#0D9488',   // Vert Lagon (Brand Primary)
+                          bg: '#FFF7ED'      // C'est un blanc cassé chaud, parfait pour la lecture et le contraste.
+                      }
+                  },
+                  fontFamily: {
+                      sans: ['"Plus Jakarta Sans"', 'sans-serif'], // Nouvelle police corps
+                      serif: ['"Outfit"', 'sans-serif'],           // Nouvelle police titres
+                  }
+              }
+          }
+      }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        
+        /* 2. FORÇAGE DES GRAISSES (Comme sur la Landing Page) */
+        .font-sans { font-weight: 600 !important; }
+        .font-serif { font-weight: 800 !important; }
+
+        /* Ligne verticale de la timeline */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; margin-left: -1px; }
+        }
+
+        /* Style des cartes Info */
+        .tip-card {
+            border-left: 4px solid #F97316; /* ocre */
+            background-color: #FFF7ED;
+        }
+
+        /* Masquer la scrollbar de la nav mobile tout en gardant le scroll */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-template-bg text-template-roche antialiased">
+    
+    <nav id="nav-desktop" class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-4 px-8 justify-between items-center shadow-sm transition-transform duration-300 -translate-y-full">
+        <a href="#top" class="text-xl font-serif font-bold tracking-widest text-template-roche">MyTrip<span class="text-template-ocre">Planner</span></a>
+        <div class="space-x-6 text-sm font-bold text-gray-600">
+            <a href="#jour-1" class="nav-item-desktop hover:text-template-ocre transition">Le Parcours</a>
+            <a href="#pratique" class="nav-item-desktop hover:text-template-ocre transition">Infos Pratiques</a>
+        </div>
+    </nav>
+
+    <nav id="nav-mobile" class="md:hidden fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 py-3 pl-4 overflow-x-auto hide-scroll whitespace-nowrap shadow-md transition-transform duration-300 -translate-y-full">
+        <div class="flex space-x-2 pr-4" id="mobile-menu-container">
+            <a href="#top" class="inline-block px-3 py-1 bg-template-roche text-white rounded-full text-xs font-bold shadow-sm">Top</a>
+            
+                <a href="#jour-1" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J1 Arrivée à Sydney et première immersion</a>
+            
+                <a href="#jour-2" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J2 Icônes de Sydney et jardins paisibles</a>
+            
+                <a href="#jour-3" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J3 Détente à Bondi Beach et promenade côtière</a>
+            
+                <a href="#jour-4" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J4 Sérénité dans les Blue Mountains</a>
+            
+                <a href="#jour-5" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J5 Nature et retour à Sydney</a>
+            
+                <a href="#jour-6" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J6 Vol vers le Nord Tropical : Cairns et Port Douglas</a>
+            
+                <a href="#jour-7" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J7 Immersion dans la Forêt Tropicale de Daintree</a>
+            
+                <a href="#jour-8" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J8 Merveilles de la Grande Barrière de Corail</a>
+            
+                <a href="#jour-9" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J9 Journée libre et détente à Port Douglas</a>
+            
+                <a href="#jour-10" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J10 Voyage pittoresque à Kuranda</a>
+            
+                <a href="#jour-11" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J11 Dernière touche tropicale à Cairns</a>
+            
+                <a href="#jour-12" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J12 Vol vers Melbourne, capitale culturelle</a>
+            
+                <a href="#jour-13" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J13 Art, jardins et ambiance urbaine de Melbourne</a>
+            
+                <a href="#jour-14" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J14 Rencontre avec les pingouins de Phillip Island</a>
+            
+                <a href="#jour-15" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J15 Début de la Great Ocean Road : paysages côtiers</a>
+            
+                <a href="#jour-16" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J16 Les Douze Apôtres et retour à Melbourne</a>
+            
+                <a href="#jour-17" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J17 Détente et saveurs dans la Yarra Valley</a>
+            
+                <a href="#jour-18" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J18 Shopping et culture à Melbourne</a>
+            
+                <a href="#jour-19" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J19 Préparation au départ et vol de retour</a>
+            
+                <a href="#jour-20" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J20 Arrivée à Noel, États-Unis</a>
+            
+            <a href="#pratique" class="mobile-link inline-block px-3 py-1 border border-gray-300 text-gray-500 rounded-full text-xs font-bold">Infos</a>
+        </div>
+    </nav>
+
+    <header id="top" class="relative h-[60vh] flex items-center justify-center bg-cover bg-center"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/header.png" || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021'}');">
+        
+        <div class="relative z-20 text-center text-white px-4 max-w-3xl animate-fade-in-up">
+            <p class="font-sans text-template-sable tracking-[0.2em] mb-4 uppercase text-xs font-bold">Feuille de Route</p>
+            <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">AUSTRALIE</h1>
+            <p class="font-sans text-lg md:text-xl text-gray-100 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">L'Australie Relaxante : De Sydney aux Récifs Coralliens</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mb-10">
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🗓️ 20 jours</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">💰 7000 €/personne (estimation)</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🛬 24h00 (depuis Noel, etats unis)</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="itineraire" class="max-w-6xl mx-auto px-4 py-16 relative">
+        <div class="text-center mb-16">
+            <h2 class="text-template-ocre font-bold tracking-normal text-4xl mt-2 uppercase font-serif">Votre Roadtrip</h2>
+        </div>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+            
+                <div id="jour-1" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 1</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Arrivée à Sydney et première immersion</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après un long voyage, la première journée est dédiée à l'installation et à une douce découverte de Sydney. Profitez de l'ambiance portuaire et des vues emblématiques pour vous acclimater en douceur à l'Australie.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🛬</strong>: Arrivée à l'aéroport de Sydney (SYD) et transfert vers votre hôtel.</li><li><strong>🛏️</strong>: Installation et détente à votre hébergement dans le quartier de Circular Quay ou The Rocks.</li><li><strong>🚶‍♂️</strong>: Balade relaxante autour de Circular Quay, admirant l'Opéra de Sydney et le Harbour Bridge.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour1.jpg" class="w-full h-64 object-cover" alt="Jour 1">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ À savoir</p>
+                                <p class="text-gray-700">Le décalage horaire est important. Prévoyez une première journée légère pour récupérer du vol et éviter le jet lag.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-2" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 2</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Icônes de Sydney et jardins paisibles</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Explorez les sites emblématiques de Sydney à un rythme tranquille. De l'architecture audacieuse de l'Opéra aux oasis de verdure des jardins botaniques, cette journée allie culture et sérénité au cœur de la ville.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🎭</strong>: Visite guidée de l'Opéra de Sydney pour découvrir son histoire et son architecture unique.</li><li><strong>🌳</strong>: Promenade apaisante dans les Jardins Botaniques Royaux, offrant des vues imprenables sur le port.</li><li><strong>🍽️</strong>: Dîner décontracté dans le quartier historique de The Rocks, imprégné d'histoire.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour2.jpg" class="w-full h-64 object-cover" alt="Jour 2">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶‍♀️ Conseil</p>
+                                <p class="text-gray-700">Les Jardins Botaniques sont vastes, prévoyez de bonnes chaussures et prenez votre temps pour flâner.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-3" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 3</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Détente à Bondi Beach et promenade côtière</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Évadez-vous vers la célèbre Bondi Beach pour une journée de détente au bord de l'océan. Profitez du soleil, des vagues et d'une magnifique promenade côtière, offrant des panoramas spectaculaires sur les falaises et les plages.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚌</strong>: Trajet en bus vers Bondi Beach, l'une des plages les plus emblématiques d'Australie.</li><li><strong>🌊</strong>: Détente sur le sable, baignade ou observation des surfeurs.</li><li><strong>🚶‍♀️</strong>: Balade douce le long du sentier côtier Bondi to Coogee, admirant les paysages marins.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour3.jpg" class="w-full h-64 object-cover" alt="Jour 3">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">☀️ Protection solaire</p>
+                                <p class="text-gray-700">Le soleil australien est intense. N'oubliez pas crème solaire, chapeau et lunettes de soleil, même par temps nuageux.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-4" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 4</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sérénité dans les Blue Mountains</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Partez pour une excursion relaxante dans les majestueuses Blue Mountains, classées au patrimoine mondial. Admirez les formations rocheuses des Trois Sœurs et profitez de vues panoramiques depuis des points d'observation accessibles, le tout dans une atmosphère paisible.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚗</strong>: Location de voiture ou excursion organisée vers les Blue Mountains (environ 1h30 de route).</li><li><strong>🚠</strong>: Expérience Scenic World: téléphérique, train incliné et promenade sur des passerelles au cœur de la forêt.</li><li><strong>👀</strong>: Admiration des Trois Sœurs depuis Echo Point et balade facile sur les sentiers aménagés.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour4.jpg" class="w-full h-64 object-cover" alt="Jour 4">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ Transport</p>
+                                <p class="text-gray-700">Une voiture offre plus de flexibilité pour explorer les différents points de vue des Blue Mountains à votre rythme.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-5" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 5</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Nature et retour à Sydney</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez d'une dernière matinée au calme dans les Blue Mountains, peut-être avec une courte promenade ou la visite d'un village pittoresque. Retournez ensuite à Sydney pour une soirée tranquille, préparant la prochaine étape de votre voyage.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚶‍♀️</strong>: Courte promenade dans les jardins de Leura ou visite du village de Katoomba.</li><li><strong>🍽️</strong>: Déjeuner paisible dans un café local des Blue Mountains.</li><li><strong>🚗</strong>: Retour à Sydney en fin d'après-midi et soirée libre pour se reposer.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour5.jpg" class="w-full h-64 object-cover" alt="Jour 5">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🛍️ Souvenirs</p>
+                                <p class="text-gray-700">Les villages des Blue Mountains regorgent de petites boutiques d'artisanat et de produits locaux.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-6" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 6</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Vol vers le Nord Tropical : Cairns et Port Douglas</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Quittez l'effervescence de Sydney pour la chaleur tropicale du Queensland. Un vol intérieur vous mènera à Cairns, porte d'entrée de la Grande Barrière de Corail et de la forêt tropicale. Installation à Port Douglas, une charmante ville côtière.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>✈️</strong>: Vol matinal de Sydney (SYD) à Cairns (CNS).</li><li><strong>🚗</strong>: Transfert en navette ou location de voiture de Cairns à Port Douglas (environ 1h de route).</li><li><strong>🛏️</strong>: Installation à l'hôtel à Port Douglas et première balade sur Four Mile Beach.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour6.jpg" class="w-full h-64 object-cover" alt="Jour 6">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ Climat</p>
+                                <p class="text-gray-700">Le nord du Queensland est tropical. Attendez-vous à des températures plus élevées et une humidité plus importante qu'à Sydney.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-7" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 7</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Immersion dans la Forêt Tropicale de Daintree</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Explorez la plus ancienne forêt tropicale humide du monde, Daintree, où la jungle rencontre la mer. Profitez de promenades sur des passerelles, d'une croisière paisible sur la rivière pour observer la faune et d'une connexion profonde avec la nature luxuriante.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚗</strong>: Excursion d'une journée dans la Daintree Rainforest, traversant la rivière Daintree en ferry.</li><li><strong>🐊</strong>: Croisière relaxante sur la rivière Daintree pour observer les crocodiles et les oiseaux.</li><li><strong>🚶‍♀️</strong>: Promenade sur les passerelles aménagées (ex: Marrdja ou Dubuji Boardwalk) au cœur de la forêt.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour7.jpg" class="w-full h-64 object-cover" alt="Jour 7">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⚠️ Faune</p>
+                                <p class="text-gray-700">Soyez attentif aux panneaux d'avertissement concernant les crocodiles dans les rivières et estuaires.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-8" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 8</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Merveilles de la Grande Barrière de Corail</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Découvrez la splendeur sous-marine de la Grande Barrière de Corail, une merveille naturelle. Optez pour une excursion en bateau avec fond de verre ou une initiation douce à la plongée avec tuba pour admirer les coraux colorés et la vie marine foisonnante, sans effort excessif.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>⛵</strong>: Excursion en catamaran vers un ponton ou une île de la Grande Barrière de Corail.</li><li><strong>🐠</strong>: Observation des fonds marins depuis un bateau à fond de verre ou initiation au snorkeling (masque et tuba) dans des zones calmes.</li><li><strong>🍽️</strong>: Déjeuner buffet à bord du bateau, profitant des vues sur l'océan.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour8.jpg" class="w-full h-64 object-cover" alt="Jour 8">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💧 Équipement</p>
+                                <p class="text-gray-700">La plupart des excursions fournissent l'équipement de snorkeling. Pensez à un maillot de bain et une serviette.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-9" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 9</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Journée libre et détente à Port Douglas</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après les explorations des jours précédents, cette journée est dédiée à la pure détente. Profitez de l'ambiance décontractée de Port Douglas, flânez sur la plage, explorez les boutiques locales ou savourez un moment de calme au bord de la piscine.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚶‍♀️</strong>: Matinée libre pour se détendre sur Four Mile Beach ou au bord de la piscine de l'hôtel.</li><li><strong>🛍️</strong>: Exploration des boutiques et galeries d'art de Macrossan Street à Port Douglas.</li><li><strong>🌅</strong>: Coucher de soleil sur la marina ou depuis un point de vue panoramique.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour9.jpg" class="w-full h-64 object-cover" alt="Jour 9">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍽️ Gastronomie</p>
+                                <p class="text-gray-700">Port Douglas est réputée pour ses excellents restaurants de fruits de mer frais. Une belle occasion de se faire plaisir.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-10" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 10</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Voyage pittoresque à Kuranda</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Embarquez pour un voyage enchanteur à travers la forêt tropicale en empruntant le Kuranda Scenic Railway. Découvrez le charmant village de Kuranda, puis redescendez en douceur avec le Skyrail Rainforest Cableway, offrant des vues aériennes spectaculaires.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚂</strong>: Trajet en train panoramique Kuranda Scenic Railway, traversant des tunnels et des ponts historiques.</li><li><strong>🛍️</strong>: Exploration du village de Kuranda, ses marchés artisanaux et ses attractions douces (ex: Birdworld).</li><li><strong>🚠</strong>: Retour en Skyrail Rainforest Cableway, survolant la canopée de la forêt tropicale.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour10.jpg" class="w-full h-64 object-cover" alt="Jour 10">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎟️ Réservation</p>
+                                <p class="text-gray-700">Il est conseillé de réserver à l'avance les billets pour le Kuranda Scenic Railway et le Skyrail, surtout en haute saison.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-11" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 11</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Dernière touche tropicale à Cairns</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez d'une dernière matinée dans le nord tropical. Si vous êtes à Port Douglas, un dernier moment de détente. Si vous êtes à Cairns, explorez la ville et sa célèbre Lagoon avant de vous préparer pour la prochaine étape de votre aventure australienne.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚗</strong>: Transfert de Port Douglas à Cairns (si vous n'y êtes pas déjà).</li><li><strong>🏊‍♀️</strong>: Détente et baignade à la Cairns Esplanade Lagoon, une piscine publique en bord de mer.</li><li><strong>🚶‍♂️</strong>: Balade le long de l'Esplanade de Cairns, observant les oiseaux et l'ambiance locale.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour11.jpg" class="w-full h-64 object-cover" alt="Jour 11">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">✈️ Préparation</p>
+                                <p class="text-gray-700">Préparez vos affaires pour le vol du lendemain vers Melbourne, une ville au climat plus tempéré.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-12" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 12</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Vol vers Melbourne, capitale culturelle</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Laissez derrière vous la chaleur tropicale pour la sophistication culturelle de Melbourne. Un vol intérieur vous transportera vers la capitale de l'État de Victoria, réputée pour son art, sa gastronomie et ses ruelles cachées. Installation et première exploration.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>✈️</strong>: Vol de Cairns (CNS) à Melbourne (MEL).</li><li><strong>🛏️</strong>: Transfert à votre hôtel et installation dans le centre-ville de Melbourne.</li><li><strong>🚶‍♂️</strong>: Première balade dans les célèbres "laneways" (ruelles) de Melbourne, découvrant le street art et les cafés.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour12.jpg" class="w-full h-64 object-cover" alt="Jour 12">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ Climat</p>
+                                <p class="text-gray-700">Melbourne est connue pour ses "quatre saisons en une journée". Prévoyez des couches de vêtements pour vous adapter aux changements de température.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-13" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 13</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Art, jardins et ambiance urbaine de Melbourne</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez au cœur de l'effervescence culturelle de Melbourne. Explorez ses galeries d'art, ses jardins luxuriants et imprégnez-vous de l'atmosphère unique de cette ville cosmopolite, réputée pour sa qualité de vie et son dynamisme artistique.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🖼️</strong>: Visite de la National Gallery of Victoria (NGV), la plus ancienne galerie d'art publique d'Australie.</li><li><strong>🌳</strong>: Promenade relaxante dans les Fitzroy Gardens, abritant le Cook's Cottage.</li><li><strong>☕</strong>: Pause café dans un des nombreux cafés branchés de Melbourne, réputée pour sa culture du café.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour13.jpg" class="w-full h-64 object-cover" alt="Jour 13">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶‍♀️ Transport</p>
+                                <p class="text-gray-700">Le centre-ville de Melbourne est très agréable à explorer à pied, et le tramway est gratuit dans la "Free Tram Zone".</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-14" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 14</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Rencontre avec les pingouins de Phillip Island</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Partez pour une excursion mémorable à Phillip Island, célèbre pour sa "Parade des Pingouins". Observez ces adorables créatures marines revenir de la pêche au crépuscule, un spectacle naturel doux et fascinant, parfait pour une soirée relaxante.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚗</strong>: Excursion en après-midi vers Phillip Island (environ 2h de route depuis Melbourne).</li><li><strong>🐨</strong>: Visite du Koala Conservation Centre pour observer les koalas dans leur habitat naturel.</li><li><strong>🐧</strong>: Assister à la célèbre Penguin Parade au coucher du soleil, un moment magique et respectueux de la faune.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour14.jpg" class="w-full h-64 object-cover" alt="Jour 14">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🧥 Vêtements</p>
+                                <p class="text-gray-700">Il peut faire frais et venteux à Phillip Island le soir, même en mai. Prévoyez des vêtements chauds.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-15" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 15</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Début de la Great Ocean Road : paysages côtiers</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Embarquez pour un road trip emblématique le long de la Great Ocean Road, l'une des plus belles routes panoramiques du monde. Admirez les falaises spectaculaires, les plages isolées et les forêts denses, en faisant des arrêts doux pour profiter des vues.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚗</strong>: Location de voiture et départ pour la Great Ocean Road.</li><li><strong>🌊</strong>: Arrêts aux points de vue panoramiques comme Split Point Lighthouse et la plage de Bells Beach.</li><li><strong>🛏️</strong>: Nuitée dans une charmante ville côtière comme Apollo Bay ou Lorne.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour15.jpg" class="w-full h-64 object-cover" alt="Jour 15">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🗺️ Itinéraire</p>
+                                <p class="text-gray-700">La Great Ocean Road se parcourt idéalement sur deux jours pour profiter pleinement des paysages sans se presser.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-16" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 16</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Les Douze Apôtres et retour à Melbourne</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Poursuivez votre exploration de la Great Ocean Road jusqu'à ses formations rocheuses les plus célèbres, les Douze Apôtres. Admirez ces géants de calcaire sculptés par l'océan avant de reprendre la route vers Melbourne, la tête remplie de souvenirs marins.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🗿</strong>: Visite des Douze Apôtres, Loch Ard Gorge et London Bridge, des merveilles naturelles.</li><li><strong>🚶‍♀️</strong>: Courtes promenades sur les plateformes d'observation pour admirer les vues.</li><li><strong>🚗</strong>: Retour à Melbourne en fin d'après-midi par l'intérieur des terres pour un trajet plus rapide.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour16.jpg" class="w-full h-64 object-cover" alt="Jour 16">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚁 Option</p>
+                                <p class="text-gray-700">Pour une vue spectaculaire, un court vol en hélicoptère au-dessus des Douze Apôtres est une option mémorable (coût supplémentaire).</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-17" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 17</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Détente et saveurs dans la Yarra Valley</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Évadez-vous dans la pittoresque Yarra Valley, une région viticole réputée à seulement une heure de Melbourne. Profitez de dégustations de vins dans des domaines paisibles, savourez des produits locaux et admirez les paysages vallonnés, une journée parfaite pour les épicuriens.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🚗</strong>: Excursion d'une journée dans la Yarra Valley, célèbre pour ses vignobles et ses produits frais.</li><li><strong>🍷</strong>: Visite de plusieurs domaines viticoles pour des dégustations de vins locaux (Pinot Noir, Chardonnay).</li><li><strong>🧀</strong>: Dégustation de fromages ou chocolats locaux, complétant l'expérience gourmande.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour17.jpg" class="w-full h-64 object-cover" alt="Jour 17">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ Conduite</p>
+                                <p class="text-gray-700">Si vous dégustez du vin, prévoyez un chauffeur désigné ou optez pour une excursion organisée avec transport inclus.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-18" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 18</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Shopping et culture à Melbourne</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez d'une journée libre pour explorer Melbourne à votre guise. Flânez dans les quartiers commerçants, visitez un musée que vous n'avez pas eu le temps de voir, ou simplement détendez-vous dans un parc, savourant les derniers moments de votre séjour australien.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🛍️</strong>: Matinée shopping sur Bourke Street Mall ou dans les boutiques indépendantes des ruelles.</li><li><strong>🏛️</strong>: Visite du Melbourne Museum ou du Old Melbourne Gaol (selon vos intérêts).</li><li><strong>🍽️</strong>: Dîner d'adieu dans un restaurant de votre choix, profitant de la scène culinaire de Melbourne.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour18.jpg" class="w-full h-64 object-cover" alt="Jour 18">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Souvenirs</p>
+                                <p class="text-gray-700">Melbourne offre une grande variété de souvenirs, des produits artisanaux aux articles de mode.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-19" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 19</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Préparation au départ et vol de retour</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">C'est le moment de dire au revoir à l'Australie. Profitez d'une dernière matinée tranquille à Melbourne pour les derniers achats ou un café avant de vous diriger vers l'aéroport pour entamer votre long voyage de retour.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>☕</strong>: Dernier petit-déjeuner australien dans un café local.</li><li><strong>🛬</strong>: Transfert à l'aéroport de Melbourne (MEL) pour votre vol de retour.</li><li><strong>✈️</strong>: Vol de Melbourne vers Sydney (ou autre escale internationale) pour votre connexion vers Noel, États-Unis.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour19.jpg" class="w-full h-64 object-cover" alt="Jour 19">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ Bagages</p>
+                                <p class="text-gray-700">Vérifiez les restrictions de bagages pour vos vols intérieurs et internationaux.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-20" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 20</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Arrivée à Noel, États-Unis</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après un long voyage à travers les fuseaux horaires, vous atterrirez à Noel, États-Unis. C'est la fin d'une aventure mémorable en Australie, riche en découvertes et en moments de détente.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li><strong>🛬</strong>: Arrivée à l'aéroport de Noel, États-Unis (XNA).</li><li><strong>🏡</strong>: Retour à la maison, la tête pleine de souvenirs australiens.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Australie-5111a1i0a9p78b7/main/jour20.jpg" class="w-full h-64 object-cover" alt="Jour 20">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">😴 Repos</p>
+                                <p class="text-gray-700">Prévoyez du temps pour vous reposer et vous réadapter au décalage horaire après ce long voyage.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+
+    <section id="pratique" class="bg-white border-t border-gray-200 pt-12 pb-12 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>💴</span> Budget
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget vol: </strong>1606 €/personne (A/R depuis Noel, États-Unis)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget transports: </strong>Environ 1000 €/personne (vols intérieurs, location de voiture, transports en commun)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget repas: </strong>Environ 1900 €/personne (80-110 €/jour pour 3 repas, type 3* étoiles)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget logement: </strong>Environ 1900 €/personne (75-125 €/nuit pour 19 nuits, base chambre double 3* étoiles)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget activités: </strong>Environ 600 €/personne (excursions, entrées, dégustations)</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>☀️</span> Périodes Idéales
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Mai à Septembre (pour le sud)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Mai à Octobre (pour le nord tropical)</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>📃</span> Infos pratiques
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">👕 Le climat varie énormément entre le nord tropical (chaud et humide) et le sud tempéré (plus frais). Prévoyez des vêtements adaptés à chaque région.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">💳 Les cartes de crédit sont largement acceptées. Prévoir un peu de liquide pour les petits marchés ou zones reculées. Le dollar australien (AUD) est la monnaie locale.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🚗 La conduite se fait à gauche. Un permis international est recommandé en complément de votre permis américain. Les distances sont grandes, prévoyez du temps pour les trajets.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">📶 Une carte SIM locale ou une eSIM est utile pour la navigation et la communication. Le Wi-Fi est généralement disponible dans les hébergements et cafés.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">⚠️ L'Australie est un pays sûr, mais soyez toujours vigilant, surtout dans les zones reculées ou avec la faune (serpents, araignées, méduses dans le nord).</p>
+                
+            </div>            
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>🔗</span> Liens Utiles
+                </h4>
+                <ul class="text-sm space-y-3">
+                  <li><a href="https://mytripplanner-dotfr.github.io/Australie-5111a1i0a9p78b7/map.html" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🗺️ Carte Interactive</strong></a></li>
+                    
+                        <li><a href="https://www.kayak.fr/flights/XNA-SYD/2026-05-10/2026-05-30" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🛬 Réserve ton vol</strong></a></li>
+                    
+                        <li><a href="https://www.australia.com/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>📘 Tourisme Australie</strong></a></li>
+                    
+                        <li><a href="http://www.bom.gov.au/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🌤️ Bureau of Meteorology (Australie)</strong></a></li>
+                    
+                        <li><a href="https://www.rentalcars.com/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🚗 Comparateur de location</strong></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-50 border-t border-slate-200 py-6">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="font-serif text-lg text-template-roche mb-2 font-bold">
+                MyTrip<span class="text-template-ocre">Planner</span>
+            </p>
+
+                <div class="flex justify-center gap-4 text-[10px] md:text-xs text-slate-500 mb-4 font-semibold">
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">CGU</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Confidentialité</a>
+                </div>
+
+            <p class="text-[10px] text-gray-400 mb-2">
+                &copy; 2025 MyTripPlanner. Tous droits réservés.
+            </p>
+
+            <div class="flex justify-center">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest px-2 py-0.5 border border-gray-200 rounded-full inline-block">
+                    🤖 Contenu généré par IA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion Scroll & Menu
+        const navDesktop = document.getElementById('nav-desktop');
+        const navMobile = document.getElementById('nav-mobile');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                navDesktop.classList.remove('-translate-y-full');
+                navMobile.classList.remove('-translate-y-full');
+            } else {
+                navDesktop.classList.add('-translate-y-full');
+                navMobile.classList.add('-translate-y-full');
+            }
+        });
+        
+        // Active Link Highlighter
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    document.querySelectorAll('.mobile-link').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (linkHref === activeId) {
+                            link.classList.remove('bg-gray-100', 'text-gray-700');
+                            link.classList.add('bg-template-ocre', 'text-white', 'shadow-md');
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } else {
+                            link.classList.add('bg-gray-100', 'text-gray-700');
+                            link.classList.remove('bg-template-ocre', 'text-white', 'shadow-md');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        document.querySelectorAll('div[id^="jour-"], section#pratique').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
