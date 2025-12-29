@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Voyage - Australie</title>
+  <style>
+    :root { --primary: #1a73e8; --bg-sidebar: #ffffff; }
+    body { margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; height: 100vh; overflow: hidden; color: #333; }
+    
+    #sidebar { width: 400px; background: var(--bg-sidebar); height: 100%; display: flex; flex-direction: column; box-shadow: 4px 0 15px rgba(0,0,0,0.08); z-index: 10; transition: 0.3s ease; }
+    #map { flex: 1; height: 100%; position: relative; }
+
+    /* Header Dynamique */
+    .sidebar-header { 
+        padding: 15px 20px; 
+        border-bottom: 1px solid #eee; 
+        background: #fff; 
+        flex-shrink: 0; 
+        display: flex; 
+        flex-direction: column; 
+        transition: all 0.3s ease;
+    }
+    
+    .sidebar-header.compact { 
+        flex-direction: row; 
+        align-items: center; 
+        padding: 10px 15px;
+        gap: 15px;
+    }
+    .sidebar-header.compact h3 { margin: 0; font-size: 14px; white-space: nowrap; }
+    .sidebar-header.compact .filter-group { margin-top: 0; flex: 1; }
+
+    .filter-group { 
+        display: flex; 
+        overflow-x: auto; 
+        white-space: nowrap; 
+        gap: 8px; 
+        margin-top: 10px; 
+        padding-bottom: 5px;
+        scrollbar-width: none;
+    }
+    .filter-group::-webkit-scrollbar { display: none; }
+
+    .filter-btn { 
+        padding: 6px 14px; 
+        border: 1px solid #dfe1e5; 
+        border-radius: 20px; 
+        background: white; 
+        cursor: pointer; 
+        font-size: 13px; 
+        font-weight: 500;
+        flex-shrink: 0;
+    }
+    .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* Contenu */
+    #poi-content { flex-grow: 1; overflow-y: auto; position: relative; }
+    .close-details { 
+        position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.6); 
+        color: white; border: none; width: 36px; height: 36px; border-radius: 50%; 
+        cursor: pointer; z-index: 20; font-size: 20px; display: flex; align-items: center; justify-content: center;
+    }
+    
+    .poi-image { width: 100%; height: 250px; object-fit: cover; }
+    .poi-body { padding: 20px; }
+    .poi-body h2 { margin: 0 0 10px 0; font-size: 22px; padding-right: 35px; }
+    .badge { display: inline-block; background: #f1f3f4; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-right: 5px; }
+    .badge-day { background: #e8f0fe; color: var(--primary); }
+    .poi-description { font-size: 15px; line-height: 1.6; color: #444; margin-bottom: 25px; }
+    
+    .btn-group { display: flex; gap: 10px; padding: 0 20px 20px 20px; }
+    .btn { flex: 1; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .btn-main { background: var(--primary); color: white; }
+    .btn-outline { border: 1px solid #dadce0; color: #1a73e8; }
+
+    .placeholder { padding: 40px 20px; text-align: center; color: #70757a; font-size: 14px; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column-reverse; }
+      #sidebar { width: 100%; height: auto; min-height: 80px; max-height: 60%; }
+      #sidebar.expanded { height: 60%; }
+      #map { height: auto; flex-grow: 1; }
+      .placeholder { display: none; }
+      .poi-image { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="sidebar">
+    <div class="sidebar-header" id="header">
+      <h3 id="dest-title">Australie</h3>
+      <div class="filter-group" id="day-filters">
+        <button class="filter-btn active" onclick="filterByDay('all', this)">Tous</button>
+      </div>
+    </div>
+    <div id="poi-content">
+      <div class="placeholder">Choisissez un jour pour explorer le voyage.</div>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+  <script>
+    let map, markerCluster;
+    let markersArray = [];
+    const locations = [{"lat":-33.8727409,"lng":151.2057136,"name":"Sydney","jour":1,"titre":"Arrivée à Sydney et première immersion","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-33.8727409,151.2057136&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-33.8727409,151.2057136"},{"lat":-33.7322586,"lng":150.4428323,"name":"Blue Mountains","jour":4,"titre":"Sérénité dans les Blue Mountains","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-33.7322586,150.4428323&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-33.7322586,150.4428323"},{"lat":-33.7322586,"lng":150.4428323,"name":"Blue Mountains / Sydney","jour":5,"titre":"Nature et retour à Sydney","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-33.7322586,150.4428323&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-33.7322586,150.4428323"},{"lat":-16.4839732,"lng":145.4622522,"name":"Cairns / Port Douglas","jour":6,"titre":"Vol vers le Nord Tropical : Cairns et Port Douglas","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-16.4839732,145.4622522&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-16.4839732,145.4622522"},{"lat":-16.1700308,"lng":145.4184612,"name":"Daintree Rainforest","jour":7,"titre":"Immersion dans la Forêt Tropicale de Daintree","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-16.1700308,145.4184612&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-16.1700308,145.4184612"},{"lat":-18.2870668,"lng":147.6991918,"name":"Grande Barrière de Corail","jour":8,"titre":"Merveilles de la Grande Barrière de Corail","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-18.2870668,147.6991918&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-18.2870668,147.6991918"},{"lat":-16.4839732,"lng":145.4622522,"name":"Port Douglas","jour":9,"titre":"Journée libre et détente à Port Douglas","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-16.4839732,145.4622522&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-16.4839732,145.4622522"},{"lat":-16.8192523,"lng":145.6359794,"name":"Kuranda","jour":10,"titre":"Voyage pittoresque à Kuranda","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-16.8192523,145.6359794&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-16.8192523,145.6359794"},{"lat":-16.9203476,"lng":145.7709529,"name":"Cairns","jour":11,"titre":"Dernière touche tropicale à Cairns","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-16.9203476,145.7709529&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-16.9203476,145.7709529"},{"lat":-37.8136276,"lng":144.9630576,"name":"Melbourne","jour":12,"titre":"Vol vers Melbourne, capitale culturelle","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-37.8136276,144.9630576&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-37.8136276,144.9630576"},{"lat":-38.4898703,"lng":145.2038278,"name":"Phillip Island","jour":14,"titre":"Rencontre avec les pingouins de Phillip Island","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-38.4898703,145.2038278&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-38.4898703,145.2038278"},{"lat":-38.6804339,"lng":143.3915596,"name":"Great Ocean Road","jour":15,"titre":"Début de la Great Ocean Road : paysages côtiers","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-38.6804339,143.3915596&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-38.6804339,143.3915596"},{"lat":-38.6804339,"lng":143.3915596,"name":"Great Ocean Road / Melbourne","jour":16,"titre":"Les Douze Apôtres et retour à Melbourne","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-38.6804339,143.3915596&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-38.6804339,143.3915596"},{"lat":-25.274398,"lng":133.775136,"name":"Yarra Valley","jour":17,"titre":"Détente et saveurs dans la Yarra Valley","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-25.274398,133.775136&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-25.274398,133.775136"},{"lat":-37.8136276,"lng":144.9630576,"name":"Melbourne / Vol","jour":19,"titre":"Préparation au départ et vol de retour","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=-37.8136276,144.9630576&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=-37.8136276,144.9630576"},{"lat":38.7945952,"lng":-106.5348379,"name":"Noel, États-Unis","jour":20,"titre":"Arrivée à Noel, États-Unis","type":"activité","markerColor":"blue","streetViewUrl":"https://maps.googleapis.com/maps/api/streetview?size=600x400&location=38.7945952,-106.5348379&key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI","streetViewLinkUrl":"https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=38.7945952,-106.5348379"}];
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: { lat: -23.778731131249998, lng: 129.79336426249998 },
+        zoomControl: true,
+        streetViewControl: false,
+        mapTypeControl: false,
+        styles: [{ featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] }]
+      });
+
+      const days = [...new Set(locations.map(l => l.jour))].sort((a,b) => a - b);
+      const filterContainer = document.getElementById('day-filters');
+      days.forEach(day => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.innerText = 'J' + day;
+        btn.onclick = function() { filterByDay(day, this); };
+        filterContainer.appendChild(btn);
+      });
+
+      locations.forEach(loc => {
+        const marker = new google.maps.Marker({
+          position: { lat: loc.lat, lng: loc.lng },
+          icon: `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=$${loc.markerColor}-dot.png`,
+          label: { text: String(loc.jour), color: 'white', fontSize: '11px', fontWeight: 'bold' },
+          data: loc
+        });
+        marker.addListener('click', () => updateSidebar(loc));
+        markersArray.push(marker);
+      });
+
+      markerCluster = new markerClusterer.MarkerClusterer({ map, markers: markersArray });
+    }
+
+    function updateSidebar(poi) {
+      const container = document.getElementById('poi-content');
+      const header = document.getElementById('header');
+      document.getElementById('sidebar').classList.add('expanded');
+      header.classList.add('compact');
+      
+      container.innerHTML = `
+        <div class="poi-detail">
+          <button class="close-details" onclick="closeSidebar()">✕</button>
+          <img src="${poi.streetViewUrl}" class="poi-image">
+          <div class="poi-body">
+            <div class="badge-container">
+              <span class="badge badge-day">Jour ${poi.jour}</span>
+              <span class="badge">${poi.type}</span>
+            </div>
+            <h2>${poi.name}</h2>
+            <p class="poi-description">${poi.titre}</p>
+          </div>
+          <div class="btn-group">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${poi.lat},${poi.lng}" target="_blank" class="btn btn-main">Itinéraire</a>
+            <a href="${poi.streetViewLinkUrl}" target="_blank" class="btn btn-outline">Street View</a>
+          </div>
+        </div>
+      `;
+      container.scrollTop = 0;
+      map.panTo({ lat: poi.lat, lng: poi.lng });
+    }
+
+    function closeSidebar() {
+      document.getElementById('poi-content').innerHTML = '<div class="placeholder">Choisissez un jour pour commencer.</div>';
+      document.getElementById('sidebar').classList.remove('expanded');
+      document.getElementById('header').classList.remove('compact');
+    }
+
+    function filterByDay(day, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filtered = day === 'all' ? markersArray : markersArray.filter(m => m.data.jour === day);
+      markerCluster.clearMarkers();
+      markerCluster.addMarkers(filtered);
+
+      if (filtered.length > 0) {
+        const bounds = new google.maps.LatLngBounds();
+        filtered.forEach(m => bounds.extend(m.getPosition()));
+        
+        // Zoom plus prononcé
+        map.fitBounds(bounds);
+        
+        // Ajustement après fitBounds pour éviter un zoom trop lointain ou trop proche
+        google.maps.event.addListenerOnce(map, 'idle', function() {
+            if (day !== 'all') {
+                if (filtered.length === 1) {
+                    map.setZoom(16); // Zoom très proche pour une seule étape
+                } else if (map.getZoom() > 15) {
+                    map.setZoom(15); // Limite de zoom pour plusieurs étapes
+                }
+                updateSidebar(filtered[0].data);
+            } else {
+                closeSidebar();
+            }
+        });
+      }
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5WUNvRC9eOjHRLt92fs4hsp0Auje3aAI&callback=initMap"></script>
+</body>
+</html>
