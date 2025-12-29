@@ -1,0 +1,435 @@
+{
+  "pays": "Australie",
+  "drapeau": "🇦🇺",
+  "symbole": "🦘",
+  "titre": "L'Australie Relaxante : De Sydney aux Récifs Coralliens",
+  "budget_total": "7000 €/personne (estimation)",
+  "duree": "20 jours",
+  "temps_vol": "24h00 (depuis Noel, etats unis)",
+  "escale": "1",
+  "jours": [
+    {
+      "jour": 1,
+      "symbole": "🛬",
+      "titre": "Arrivée à Sydney et première immersion",
+      "legende": "Après un long voyage, la première journée est dédiée à l'installation et à une douce découverte de Sydney. Profitez de l'ambiance portuaire et des vues emblématiques pour vous acclimater en douceur à l'Australie.",
+      "lieu": "Sydney",
+      "activites": [
+        "<strong>🛬</strong>: Arrivée à l'aéroport de Sydney (SYD) et transfert vers votre hôtel.",
+        "<strong>🛏️</strong>: Installation et détente à votre hébergement dans le quartier de Circular Quay ou The Rocks.",
+        "<strong>🚶‍♂️</strong>: Balade relaxante autour de Circular Quay, admirant l'Opéra de Sydney et le Harbour Bridge."
+      ],
+      "illustration": "sydney_arrival.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "À savoir",
+          "texte": "Le décalage horaire est important. Prévoyez une première journée légère pour récupérer du vol et éviter le jet lag."
+        }
+      ]
+    },
+    {
+      "jour": 2,
+      "symbole": "🏙️",
+      "titre": "Icônes de Sydney et jardins paisibles",
+      "legende": "Explorez les sites emblématiques de Sydney à un rythme tranquille. De l'architecture audacieuse de l'Opéra aux oasis de verdure des jardins botaniques, cette journée allie culture et sérénité au cœur de la ville.",
+      "lieu": "Sydney",
+      "activites": [
+        "<strong>🎭</strong>: Visite guidée de l'Opéra de Sydney pour découvrir son histoire et son architecture unique.",
+        "<strong>🌳</strong>: Promenade apaisante dans les Jardins Botaniques Royaux, offrant des vues imprenables sur le port.",
+        "<strong>🍽️</strong>: Dîner décontracté dans le quartier historique de The Rocks, imprégné d'histoire."
+      ],
+      "illustration": "sydney_opera_garden.jpg",
+      "encarts": [
+        {
+          "symbole": "🚶‍♀️",
+          "titre": "Conseil",
+          "texte": "Les Jardins Botaniques sont vastes, prévoyez de bonnes chaussures et prenez votre temps pour flâner."
+        }
+      ]
+    },
+    {
+      "jour": 3,
+      "symbole": "🏖️",
+      "titre": "Détente à Bondi Beach et promenade côtière",
+      "legende": "Évadez-vous vers la célèbre Bondi Beach pour une journée de détente au bord de l'océan. Profitez du soleil, des vagues et d'une magnifique promenade côtière, offrant des panoramas spectaculaires sur les falaises et les plages.",
+      "lieu": "Sydney",
+      "activites": [
+        "<strong>🚌</strong>: Trajet en bus vers Bondi Beach, l'une des plages les plus emblématiques d'Australie.",
+        "<strong>🌊</strong>: Détente sur le sable, baignade ou observation des surfeurs.",
+        "<strong>🚶‍♀️</strong>: Balade douce le long du sentier côtier Bondi to Coogee, admirant les paysages marins."
+      ],
+      "illustration": "bondi_beach_walk.jpg",
+      "encarts": [
+        {
+          "symbole": "☀️",
+          "titre": "Protection solaire",
+          "texte": "Le soleil australien est intense. N'oubliez pas crème solaire, chapeau et lunettes de soleil, même par temps nuageux."
+        }
+      ]
+    },
+    {
+      "jour": 4,
+      "symbole": "⛰️",
+      "titre": "Sérénité dans les Blue Mountains",
+      "legende": "Partez pour une excursion relaxante dans les majestueuses Blue Mountains, classées au patrimoine mondial. Admirez les formations rocheuses des Trois Sœurs et profitez de vues panoramiques depuis des points d'observation accessibles, le tout dans une atmosphère paisible.",
+      "lieu": "Blue Mountains",
+      "activites": [
+        "<strong>🚗</strong>: Location de voiture ou excursion organisée vers les Blue Mountains (environ 1h30 de route).",
+        "<strong>🚠</strong>: Expérience Scenic World: téléphérique, train incliné et promenade sur des passerelles au cœur de la forêt.",
+        "<strong>👀</strong>: Admiration des Trois Sœurs depuis Echo Point et balade facile sur les sentiers aménagés."
+      ],
+      "illustration": "blue_mountains_sisters.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "Transport",
+          "texte": "Une voiture offre plus de flexibilité pour explorer les différents points de vue des Blue Mountains à votre rythme."
+        }
+      ]
+    },
+    {
+      "jour": 5,
+      "symbole": "🌿",
+      "titre": "Nature et retour à Sydney",
+      "legende": "Profitez d'une dernière matinée au calme dans les Blue Mountains, peut-être avec une courte promenade ou la visite d'un village pittoresque. Retournez ensuite à Sydney pour une soirée tranquille, préparant la prochaine étape de votre voyage.",
+      "lieu": "Blue Mountains / Sydney",
+      "activites": [
+        "<strong>🚶‍♀️</strong>: Courte promenade dans les jardins de Leura ou visite du village de Katoomba.",
+        "<strong>🍽️</strong>: Déjeuner paisible dans un café local des Blue Mountains.",
+        "<strong>🚗</strong>: Retour à Sydney en fin d'après-midi et soirée libre pour se reposer."
+      ],
+      "illustration": "leura_village.jpg",
+      "encarts": [
+        {
+          "symbole": "🛍️",
+          "titre": "Souvenirs",
+          "texte": "Les villages des Blue Mountains regorgent de petites boutiques d'artisanat et de produits locaux."
+        }
+      ]
+    },
+    {
+      "jour": 6,
+      "symbole": "✈️",
+      "titre": "Vol vers le Nord Tropical : Cairns et Port Douglas",
+      "legende": "Quittez l'effervescence de Sydney pour la chaleur tropicale du Queensland. Un vol intérieur vous mènera à Cairns, porte d'entrée de la Grande Barrière de Corail et de la forêt tropicale. Installation à Port Douglas, une charmante ville côtière.",
+      "lieu": "Cairns / Port Douglas",
+      "activites": [
+        "<strong>✈️</strong>: Vol matinal de Sydney (SYD) à Cairns (CNS).",
+        "<strong>🚗</strong>: Transfert en navette ou location de voiture de Cairns à Port Douglas (environ 1h de route).",
+        "<strong>🛏️</strong>: Installation à l'hôtel à Port Douglas et première balade sur Four Mile Beach."
+      ],
+      "illustration": "port_douglas_beach.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "Climat",
+          "texte": "Le nord du Queensland est tropical. Attendez-vous à des températures plus élevées et une humidité plus importante qu'à Sydney."
+        }
+      ]
+    },
+    {
+      "jour": 7,
+      "symbole": "🌳",
+      "titre": "Immersion dans la Forêt Tropicale de Daintree",
+      "legende": "Explorez la plus ancienne forêt tropicale humide du monde, Daintree, où la jungle rencontre la mer. Profitez de promenades sur des passerelles, d'une croisière paisible sur la rivière pour observer la faune et d'une connexion profonde avec la nature luxuriante.",
+      "lieu": "Daintree Rainforest",
+      "activites": [
+        "<strong>🚗</strong>: Excursion d'une journée dans la Daintree Rainforest, traversant la rivière Daintree en ferry.",
+        "<strong>🐊</strong>: Croisière relaxante sur la rivière Daintree pour observer les crocodiles et les oiseaux.",
+        "<strong>🚶‍♀️</strong>: Promenade sur les passerelles aménagées (ex: Marrdja ou Dubuji Boardwalk) au cœur de la forêt."
+      ],
+      "illustration": "daintree_boardwalk.jpg",
+      "encarts": [
+        {
+          "symbole": "⚠️",
+          "titre": "Faune",
+          "texte": "Soyez attentif aux panneaux d'avertissement concernant les crocodiles dans les rivières et estuaires."
+        }
+      ]
+    },
+    {
+      "jour": 8,
+      "symbole": "🐠",
+      "titre": "Merveilles de la Grande Barrière de Corail",
+      "legende": "Découvrez la splendeur sous-marine de la Grande Barrière de Corail, une merveille naturelle. Optez pour une excursion en bateau avec fond de verre ou une initiation douce à la plongée avec tuba pour admirer les coraux colorés et la vie marine foisonnante, sans effort excessif.",
+      "lieu": "Grande Barrière de Corail",
+      "activites": [
+        "<strong>⛵</strong>: Excursion en catamaran vers un ponton ou une île de la Grande Barrière de Corail.",
+        "<strong>🐠</strong>: Observation des fonds marins depuis un bateau à fond de verre ou initiation au snorkeling (masque et tuba) dans des zones calmes.",
+        "<strong>🍽️</strong>: Déjeuner buffet à bord du bateau, profitant des vues sur l'océan."
+      ],
+      "illustration": "great_barrier_reef_snorkeling.jpg",
+      "encarts": [
+        {
+          "symbole": "💧",
+          "titre": "Équipement",
+          "texte": "La plupart des excursions fournissent l'équipement de snorkeling. Pensez à un maillot de bain et une serviette."
+        }
+      ]
+    },
+    {
+      "jour": 9,
+      "symbole": "🌴",
+      "titre": "Journée libre et détente à Port Douglas",
+      "legende": "Après les explorations des jours précédents, cette journée est dédiée à la pure détente. Profitez de l'ambiance décontractée de Port Douglas, flânez sur la plage, explorez les boutiques locales ou savourez un moment de calme au bord de la piscine.",
+      "lieu": "Port Douglas",
+      "activites": [
+        "<strong>🚶‍♀️</strong>: Matinée libre pour se détendre sur Four Mile Beach ou au bord de la piscine de l'hôtel.",
+        "<strong>🛍️</strong>: Exploration des boutiques et galeries d'art de Macrossan Street à Port Douglas.",
+        "<strong>🌅</strong>: Coucher de soleil sur la marina ou depuis un point de vue panoramique."
+      ],
+      "illustration": "port_douglas_sunset.jpg",
+      "encarts": [
+        {
+          "symbole": "🍽️",
+          "titre": "Gastronomie",
+          "texte": "Port Douglas est réputée pour ses excellents restaurants de fruits de mer frais. Une belle occasion de se faire plaisir."
+        }
+      ]
+    },
+    {
+      "jour": 10,
+      "symbole": "🚂",
+      "titre": "Voyage pittoresque à Kuranda",
+      "legende": "Embarquez pour un voyage enchanteur à travers la forêt tropicale en empruntant le Kuranda Scenic Railway. Découvrez le charmant village de Kuranda, puis redescendez en douceur avec le Skyrail Rainforest Cableway, offrant des vues aériennes spectaculaires.",
+      "lieu": "Kuranda",
+      "activites": [
+        "<strong>🚂</strong>: Trajet en train panoramique Kuranda Scenic Railway, traversant des tunnels et des ponts historiques.",
+        "<strong>🛍️</strong>: Exploration du village de Kuranda, ses marchés artisanaux et ses attractions douces (ex: Birdworld).",
+        "<strong>🚠</strong>: Retour en Skyrail Rainforest Cableway, survolant la canopée de la forêt tropicale."
+      ],
+      "illustration": "kuranda_skyrail.jpg",
+      "encarts": [
+        {
+          "symbole": "🎟️",
+          "titre": "Réservation",
+          "texte": "Il est conseillé de réserver à l'avance les billets pour le Kuranda Scenic Railway et le Skyrail, surtout en haute saison."
+        }
+      ]
+    },
+    {
+      "jour": 11,
+      "symbole": "💦",
+      "titre": "Dernière touche tropicale à Cairns",
+      "legende": "Profitez d'une dernière matinée dans le nord tropical. Si vous êtes à Port Douglas, un dernier moment de détente. Si vous êtes à Cairns, explorez la ville et sa célèbre Lagoon avant de vous préparer pour la prochaine étape de votre aventure australienne.",
+      "lieu": "Cairns",
+      "activites": [
+        "<strong>🚗</strong>: Transfert de Port Douglas à Cairns (si vous n'y êtes pas déjà).",
+        "<strong>🏊‍♀️</strong>: Détente et baignade à la Cairns Esplanade Lagoon, une piscine publique en bord de mer.",
+        "<strong>🚶‍♂️</strong>: Balade le long de l'Esplanade de Cairns, observant les oiseaux et l'ambiance locale."
+      ],
+      "illustration": "cairns_lagoon.jpg",
+      "encarts": [
+        {
+          "symbole": "✈️",
+          "titre": "Préparation",
+          "texte": "Préparez vos affaires pour le vol du lendemain vers Melbourne, une ville au climat plus tempéré."
+        }
+      ]
+    },
+    {
+      "jour": 12,
+      "symbole": "✈️",
+      "titre": "Vol vers Melbourne, capitale culturelle",
+      "legende": "Laissez derrière vous la chaleur tropicale pour la sophistication culturelle de Melbourne. Un vol intérieur vous transportera vers la capitale de l'État de Victoria, réputée pour son art, sa gastronomie et ses ruelles cachées. Installation et première exploration.",
+      "lieu": "Melbourne",
+      "activites": [
+        "<strong>✈️</strong>: Vol de Cairns (CNS) à Melbourne (MEL).",
+        "<strong>🛏️</strong>: Transfert à votre hôtel et installation dans le centre-ville de Melbourne.",
+        "<strong>🚶‍♂️</strong>: Première balade dans les célèbres \"laneways\" (ruelles) de Melbourne, découvrant le street art et les cafés."
+      ],
+      "illustration": "melbourne_laneway.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "Climat",
+          "texte": "Melbourne est connue pour ses \"quatre saisons en une journée\". Prévoyez des couches de vêtements pour vous adapter aux changements de température."
+        }
+      ]
+    },
+    {
+      "jour": 13,
+      "symbole": "🎨",
+      "titre": "Art, jardins et ambiance urbaine de Melbourne",
+      "legende": "Plongez au cœur de l'effervescence culturelle de Melbourne. Explorez ses galeries d'art, ses jardins luxuriants et imprégnez-vous de l'atmosphère unique de cette ville cosmopolite, réputée pour sa qualité de vie et son dynamisme artistique.",
+      "lieu": "Melbourne",
+      "activites": [
+        "<strong>🖼️</strong>: Visite de la National Gallery of Victoria (NGV), la plus ancienne galerie d'art publique d'Australie.",
+        "<strong>🌳</strong>: Promenade relaxante dans les Fitzroy Gardens, abritant le Cook's Cottage.",
+        "<strong>☕</strong>: Pause café dans un des nombreux cafés branchés de Melbourne, réputée pour sa culture du café."
+      ],
+      "illustration": "melbourne_ngv.jpg",
+      "encarts": [
+        {
+          "symbole": "🚶‍♀️",
+          "titre": "Transport",
+          "texte": "Le centre-ville de Melbourne est très agréable à explorer à pied, et le tramway est gratuit dans la \"Free Tram Zone\"."
+        }
+      ]
+    },
+    {
+      "jour": 14,
+      "symbole": "🐧",
+      "titre": "Rencontre avec les pingouins de Phillip Island",
+      "legende": "Partez pour une excursion mémorable à Phillip Island, célèbre pour sa \"Parade des Pingouins\". Observez ces adorables créatures marines revenir de la pêche au crépuscule, un spectacle naturel doux et fascinant, parfait pour une soirée relaxante.",
+      "lieu": "Phillip Island",
+      "activites": [
+        "<strong>🚗</strong>: Excursion en après-midi vers Phillip Island (environ 2h de route depuis Melbourne).",
+        "<strong>🐨</strong>: Visite du Koala Conservation Centre pour observer les koalas dans leur habitat naturel.",
+        "<strong>🐧</strong>: Assister à la célèbre Penguin Parade au coucher du soleil, un moment magique et respectueux de la faune."
+      ],
+      "illustration": "phillip_island_penguins.jpg",
+      "encarts": [
+        {
+          "symbole": "🧥",
+          "titre": "Vêtements",
+          "texte": "Il peut faire frais et venteux à Phillip Island le soir, même en mai. Prévoyez des vêtements chauds."
+        }
+      ]
+    },
+    {
+      "jour": 15,
+      "symbole": "🛣️",
+      "titre": "Début de la Great Ocean Road : paysages côtiers",
+      "legende": "Embarquez pour un road trip emblématique le long de la Great Ocean Road, l'une des plus belles routes panoramiques du monde. Admirez les falaises spectaculaires, les plages isolées et les forêts denses, en faisant des arrêts doux pour profiter des vues.",
+      "lieu": "Great Ocean Road",
+      "activites": [
+        "<strong>🚗</strong>: Location de voiture et départ pour la Great Ocean Road.",
+        "<strong>🌊</strong>: Arrêts aux points de vue panoramiques comme Split Point Lighthouse et la plage de Bells Beach.",
+        "<strong>🛏️</strong>: Nuitée dans une charmante ville côtière comme Apollo Bay ou Lorne."
+      ],
+      "illustration": "great_ocean_road_coast.jpg",
+      "encarts": [
+        {
+          "symbole": "🗺️",
+          "titre": "Itinéraire",
+          "texte": "La Great Ocean Road se parcourt idéalement sur deux jours pour profiter pleinement des paysages sans se presser."
+        }
+      ]
+    },
+    {
+      "jour": 16,
+      "symbole": "🗿",
+      "titre": "Les Douze Apôtres et retour à Melbourne",
+      "legende": "Poursuivez votre exploration de la Great Ocean Road jusqu'à ses formations rocheuses les plus célèbres, les Douze Apôtres. Admirez ces géants de calcaire sculptés par l'océan avant de reprendre la route vers Melbourne, la tête remplie de souvenirs marins.",
+      "lieu": "Great Ocean Road / Melbourne",
+      "activites": [
+        "<strong>🗿</strong>: Visite des Douze Apôtres, Loch Ard Gorge et London Bridge, des merveilles naturelles.",
+        "<strong>🚶‍♀️</strong>: Courtes promenades sur les plateformes d'observation pour admirer les vues.",
+        "<strong>🚗</strong>: Retour à Melbourne en fin d'après-midi par l'intérieur des terres pour un trajet plus rapide."
+      ],
+      "illustration": "twelve_apostles.jpg",
+      "encarts": [
+        {
+          "symbole": "🚁",
+          "titre": "Option",
+          "texte": "Pour une vue spectaculaire, un court vol en hélicoptère au-dessus des Douze Apôtres est une option mémorable (coût supplémentaire)."
+        }
+      ]
+    },
+    {
+      "jour": 17,
+      "symbole": "🍷",
+      "titre": "Détente et saveurs dans la Yarra Valley",
+      "legende": "Évadez-vous dans la pittoresque Yarra Valley, une région viticole réputée à seulement une heure de Melbourne. Profitez de dégustations de vins dans des domaines paisibles, savourez des produits locaux et admirez les paysages vallonnés, une journée parfaite pour les épicuriens.",
+      "lieu": "Yarra Valley",
+      "activites": [
+        "<strong>🚗</strong>: Excursion d'une journée dans la Yarra Valley, célèbre pour ses vignobles et ses produits frais.",
+        "<strong>🍷</strong>: Visite de plusieurs domaines viticoles pour des dégustations de vins locaux (Pinot Noir, Chardonnay).",
+        "<strong>🧀</strong>: Dégustation de fromages ou chocolats locaux, complétant l'expérience gourmande."
+      ],
+      "illustration": "yarra_valley_vineyard.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "Conduite",
+          "texte": "Si vous dégustez du vin, prévoyez un chauffeur désigné ou optez pour une excursion organisée avec transport inclus."
+        }
+      ]
+    },
+    {
+      "jour": 18,
+      "symbole": "🛍️",
+      "titre": "Shopping et culture à Melbourne",
+      "legende": "Profitez d'une journée libre pour explorer Melbourne à votre guise. Flânez dans les quartiers commerçants, visitez un musée que vous n'avez pas eu le temps de voir, ou simplement détendez-vous dans un parc, savourant les derniers moments de votre séjour australien.",
+      "lieu": "Melbourne",
+      "activites": [
+        "<strong>🛍️</strong>: Matinée shopping sur Bourke Street Mall ou dans les boutiques indépendantes des ruelles.",
+        "<strong>🏛️</strong>: Visite du Melbourne Museum ou du Old Melbourne Gaol (selon vos intérêts).",
+        "<strong>🍽️</strong>: Dîner d'adieu dans un restaurant de votre choix, profitant de la scène culinaire de Melbourne."
+      ],
+      "illustration": "melbourne_shopping.jpg",
+      "encarts": [
+        {
+          "symbole": "🎁",
+          "titre": "Souvenirs",
+          "texte": "Melbourne offre une grande variété de souvenirs, des produits artisanaux aux articles de mode."
+        }
+      ]
+    },
+    {
+      "jour": 19,
+      "symbole": "✈️",
+      "titre": "Préparation au départ et vol de retour",
+      "legende": "C'est le moment de dire au revoir à l'Australie. Profitez d'une dernière matinée tranquille à Melbourne pour les derniers achats ou un café avant de vous diriger vers l'aéroport pour entamer votre long voyage de retour.",
+      "lieu": "Melbourne / Vol",
+      "activites": [
+        "<strong>☕</strong>: Dernier petit-déjeuner australien dans un café local.",
+        "<strong>🛬</strong>: Transfert à l'aéroport de Melbourne (MEL) pour votre vol de retour.",
+        "<strong>✈️</strong>: Vol de Melbourne vers Sydney (ou autre escale internationale) pour votre connexion vers Noel, États-Unis."
+      ],
+      "illustration": "melbourne_airport.jpg",
+      "encarts": [
+        {
+          "symbole": "ℹ️",
+          "titre": "Bagages",
+          "texte": "Vérifiez les restrictions de bagages pour vos vols intérieurs et internationaux."
+        }
+      ]
+    },
+    {
+      "jour": 20,
+      "symbole": "🏡",
+      "titre": "Arrivée à Noel, États-Unis",
+      "legende": "Après un long voyage à travers les fuseaux horaires, vous atterrirez à Noel, États-Unis. C'est la fin d'une aventure mémorable en Australie, riche en découvertes et en moments de détente.",
+      "lieu": "Noel, États-Unis",
+      "activites": [
+        "<strong>🛬</strong>: Arrivée à l'aéroport de Noel, États-Unis (XNA).",
+        "<strong>🏡</strong>: Retour à la maison, la tête pleine de souvenirs australiens."
+      ],
+      "illustration": "noel_home.jpg",
+      "encarts": [
+        {
+          "symbole": "😴",
+          "titre": "Repos",
+          "texte": "Prévoyez du temps pour vous reposer et vous réadapter au décalage horaire après ce long voyage."
+        }
+      ]
+    }
+  ],
+  "detail_budget": [
+    { "titre": "Budget vol:", "legende": "1606 €/personne (A/R depuis Noel, États-Unis)", "symbole": "🛬" },
+    { "titre": "Budget transports:", "legende": "Environ 1000 €/personne (vols intérieurs, location de voiture, transports en commun)", "symbole": "🚆" },
+    { "titre": "Budget repas:", "legende": "Environ 1900 €/personne (80-110 €/jour pour 3 repas, type 3* étoiles)", "symbole": "🥗" },
+    { "titre": "Budget logement:", "legende": "Environ 1900 €/personne (75-125 €/nuit pour 19 nuits, base chambre double 3* étoiles)", "symbole": "🛏️" },
+    { "titre": "Budget activités:", "legende": "Environ 600 €/personne (excursions, entrées, dégustations)", "symbole": "🎭" }
+  ],
+  "periodes_ideales": [
+    { "titre": "Mai à Septembre (pour le sud)", "symbole": "☀️" },
+    { "titre": "Mai à Octobre (pour le nord tropical)", "symbole": "🌴" }
+  ],
+  "infos_pratiques": [
+    { "titre": "Le climat varie énormément entre le nord tropical (chaud et humide) et le sud tempéré (plus frais). Prévoyez des vêtements adaptés à chaque région.", "symbole": "👕" },
+    { "titre": "Les cartes de crédit sont largement acceptées. Prévoir un peu de liquide pour les petits marchés ou zones reculées. Le dollar australien (AUD) est la monnaie locale.", "symbole": "💳" },
+    { "titre": "La conduite se fait à gauche. Un permis international est recommandé en complément de votre permis américain. Les distances sont grandes, prévoyez du temps pour les trajets.", "symbole": "🚗" },
+    { "titre": "Une carte SIM locale ou une eSIM est utile pour la navigation et la communication. Le Wi-Fi est généralement disponible dans les hébergements et cafés.", "symbole": "📶" },
+    { "titre": "L'Australie est un pays sûr, mais soyez toujours vigilant, surtout dans les zones reculées ou avec la faune (serpents, araignées, méduses dans le nord).", "symbole": "⚠️" }
+  ],
+  "liens_utiles": [
+    { "legende": "Vols", "titre": "Réserve ton vol", "url": "https://www.kayak.fr/flights/XNA-SYD/2026-05-10/2026-05-30", "symbole": "🛬" },
+    { "legende": "Infos officielles et inspirations", "titre": "Tourisme Australie", "url": "https://www.australia.com/", "symbole": "📘" },
+    { "legende": "Météo", "titre": "Bureau of Meteorology (Australie)", "url": "http://www.bom.gov.au/", "symbole": "🌤️" },
+    { "legende": "Location de voiture", "titre": "Comparateur de location", "url": "https://www.rentalcars.com/", "symbole": "🚗" }
+  ]
+}
